@@ -337,12 +337,11 @@ namespace LinqTutorials
         /// </summary>
         public static IEnumerable<Dept> Task14()
         {
-            IEnumerable<Dept> result = Depts.GroupBy((dept, count) =>
-            {
-                
-            }).Where()
-            IEnumerable<Dept> result = null;
-            result = Emps.GroupBy(emp => emp.Deptno).Where(emp => Emp.Count(emp.Key > 5))
+            IEnumerable<Dept> result = Depts
+                .Where(dept =>
+                    Emps.Count(emp => emp.Deptno == dept.Deptno) == 5 ||
+                    !Emps.Any(emp => emp.Deptno == dept.Deptno))
+                .OrderBy(dept => dept.Dname);
             return result;
         }
         
