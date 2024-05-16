@@ -276,9 +276,12 @@ namespace LinqTutorials
         /// </summary>
         public static IEnumerable<object> Task10()
         {
-            IEnumerable<object> result = null;
-            result = Emps.Union(Depts).Select(emp =>);
-            return result;
+            var data = Emps.Select(emp => new { Ename = emp.Ename, Job = emp.Job, Hiredate = emp.HireDate });
+            var brakWartosci = new[]
+            {
+                new { Ename = "Brak wartości", Job = (string)null, Hiredate = (DateTime?)null }
+            };
+            return data.Union(brakWartosci);
         }
 
         /// <summary>
@@ -294,9 +297,12 @@ namespace LinqTutorials
         /// </summary>
         public static IEnumerable<object> Task11()
         {
-            IEnumerable<object> result = null;
-            result = Emps
-            return result;
+            return Emps.Where(emp => emp.Deptno.HasValue).GroupBy(emp => emp.Deptno).Where(group => group.Count() > 1)
+                .Select(group => new
+                {
+                    name = Depts.First(dept => dept.Deptno == group.Key).Dname,
+                    emps = group.Count()
+                }).ToList();
         }
 
         /// <summary>
@@ -308,10 +314,7 @@ namespace LinqTutorials
         /// </summary>
         public static IEnumerable<Emp> Task12()
         {
-            IEnumerable<Emp> result = null;
-
-            result = Emps.Where(emp => emp)
-            return result;
+            return Emps.GetEmpsWithSubordinates();
         }
 
         /// <summary>
@@ -323,10 +326,9 @@ namespace LinqTutorials
         /// </summary>
         public static int Task13(int[] arr)
         {
-            arr.GroupBy(index => index).FirstOrDefault(group => group.Count() % 2 == 1);
-            int result = 0;
-            //result=
-            return result;
+            var result = arr.GroupBy(index => index).FirstOrDefault(group => group.Count() % 2 != 0);
+            
+            return result.Key;
         }
 
         /// <summary>
@@ -365,11 +367,23 @@ namespace LinqTutorials
         /// <summary>
         ///     SELECT * FROM Emps, Depts;
         /// </summary>
-        public static IEnumerable<Dept> Task16()
+        public static IEnumerable<object> Task16()
         {
-            IEnumerable<Dept> result = null;
-            result =
-            return result;
+            return from emp in Emps
+                from dept in Depts
+                select new
+                {
+                    Empno = emp.Empno,
+                    Ename = emp.Ename,
+                    Job = emp.Job,
+                    Salary = emp.Salary,
+                    HireDate = emp.HireDate,
+                    Deptno = emp.Deptno,
+                    Mgr = emp.Mgr,
+                    DeptnoDept = dept.Deptno,
+                    Dname = dept.Dname,
+                    Loc = dept.Loc
+                };
         }
     }
 
@@ -378,7 +392,10 @@ namespace LinqTutorials
         //Put your extension methods here
         public static IEnumerable<Emp> GetEmpsWithSubordinates(this IEnumerable<Emp> emps)
         {
-            var result = emps.Where(e => emps.Any(e2 => e2.Mgr == e.Mgr)).OrderBy(e => e.Ename).ThenByDescending(e => e.Salary);
+            var result = emps
+                .Where(e => emps.Any(e2 => e2.Mgr == e.Mgr))
+                .OrderBy(e => e.Ename)
+                .ThenByDescending(e => e.Salary);
             return result;
         }
 

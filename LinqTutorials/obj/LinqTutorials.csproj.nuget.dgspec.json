@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\s27920\\Desktop\\LinqCwiczenia\\LinqTutorials\\LinqTutorials.csproj": {}
+    "C:\\Users\\janek\\RiderProjects\\APBD_7\\LinqTutorials\\LinqTutorials.csproj": {}
   },
   "projects": {
-    "C:\\Users\\s27920\\Desktop\\LinqCwiczenia\\LinqTutorials\\LinqTutorials.csproj": {
+    "C:\\Users\\janek\\RiderProjects\\APBD_7\\LinqTutorials\\LinqTutorials.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\s27920\\Desktop\\LinqCwiczenia\\LinqTutorials\\LinqTutorials.csproj",
+        "projectUniqueName": "C:\\Users\\janek\\RiderProjects\\APBD_7\\LinqTutorials\\LinqTutorials.csproj",
         "projectName": "LinqTutorials",
-        "projectPath": "C:\\Users\\s27920\\Desktop\\LinqCwiczenia\\LinqTutorials\\LinqTutorials.csproj",
-        "packagesPath": "C:\\Users\\s27920\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\s27920\\Desktop\\LinqCwiczenia\\LinqTutorials\\obj\\",
+        "projectPath": "C:\\Users\\janek\\RiderProjects\\APBD_7\\LinqTutorials\\LinqTutorials.csproj",
+        "packagesPath": "C:\\Users\\janek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\janek\\RiderProjects\\APBD_7\\LinqTutorials\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\s27920\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\janek\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -78,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\janek\\.dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
